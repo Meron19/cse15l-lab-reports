@@ -24,7 +24,7 @@ Now to access *ssh*, type in the command below into your terminal and press Ente
 
   $ ssh cs15lsp23xx@ieng6.ucsd.edu
   
- The **cs15lsp23xx** is going to be your course specific account that can be found by following the directions on this [link[(https://sdacs.ucsd.edu/~icc/index.php).
+ The **cs15lsp23xx** is going to be your course specific account that can be found by following the directions on this [link](https://sdacs.ucsd.edu/~icc/index.php).
  
  After running this command, you should get a prompt confirming your choice to establish a connection with the server. Type *yes* into the terminal and then type in the password you created for your course-specific account (Yes, the password is invisible. It is for secruity purposes). Something similar to this should be printed out.
  
