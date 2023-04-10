@@ -13,3 +13,24 @@ To install VScode visit [https://code.visualstudio.com](https://code.visualstudi
 After running through all the steps and installing the application, open up the VSCode application and you should have a window that looks similar to this image below.(The window you opened up might have a different color or formatting but that is due to the version you downloaded or was changed due to personal preference.)
 
 ![Image](VSCode Startup.png)
+
+## Step Two: Remotely Connecting to Server
+
+**Note:** If you have a Windows OS then you will need to install **git** to your device by visiting this [link](https://gitforwindows.org).
+
+To get started with remotely connecting to a server, you need to open up VScode and opening a terminal. (To open a terminal, use the shortcut Ctrl or Command + `)
+
+Now to access *ssh*, type in the command below into your terminal and press Enter or Return. (Make sure to not type the *$* in your terminal.)
+
+  $ ssh cs15lsp23xx@ieng6.ucsd.edu
+  
+ The **cs15lsp23xx** is going to be your course specific account that can be found by following the directions on this [link[(https://sdacs.ucsd.edu/~icc/index.php).
+ 
+ After running this command, you should get a prompt confirming your choice to establish a connection with the server. Type *yes* into the terminal and then type in the password you created for your course-specific account (Yes, the password is invisible. It is for secruity purposes). Something similar to this should be printed out.
+ 
+ ![Image](Connecting to Remote Server.png)
+ 
+ **Note:** My terminal says *mshaoo* instead of my course-specific account because a problem was occurring with my course-specific account that wasn't allowing me to sign in.
+ 
+ ## Step Three: Running Commands Using the Remote Server
+ 
