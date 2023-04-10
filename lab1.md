@@ -18,7 +18,7 @@ After running through all the steps and installing the application, open up the 
 
 **Note:** If you have a Windows OS then you will need to install **git** to your device by visiting this [link](https://gitforwindows.org).
 
-To get started with remotely connecting to a server, you need to open up VScode and opening a terminal. (To open a terminal, use the shortcut Ctrl or Command + `)
+To get started with remotely connecting to a server, you need to open up VScode and opening a terminal. (To open a terminal, use the Terminal → New Terminal menu option)
 
 Now to access *ssh*, type in the command below into your terminal and press Enter or Return. (Make sure to not type the *$* in your terminal.)
 
@@ -34,3 +34,19 @@ Now to access *ssh*, type in the command below into your terminal and press Ente
  
  ## Step Three: Running Commands Using the Remote Server
  
+ Now you are remotely connected to a computer in the CSE basement and are ready to run any commands on this computer through this connection. Using the *cd, ls, pwd, mkdir, and cp* commands, run some commands in your terminal and see what result gets printed out.
+ 
+ Some example commands to try out:
+ * cd ~
+ * cd
+ * ls -lat
+ * ls -a
+
+
+### Example of using commands ls -a and ls -lat on Remote Server
+![Image](Running Commands.png)
+
+**Note:** You can also log out of the remote server by typing and running *exit* in your terminal. Now you can try the same commands as above on your computer through the terminal and see what the results are.
+
+### Example of using command ls -a on your OWN Computer
+![Image](Running Commands2.png)
