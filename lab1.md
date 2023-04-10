@@ -32,7 +32,7 @@ Now to access *ssh*, type in the command below into your terminal and press Ente
  
  **Note:** My terminal says *mshaoo* instead of my course-specific account because a problem was occurring with my course-specific account that wasn't allowing me to sign in.
  
- ## Step Three: Running Commands Using the Remote Server
+## Step Three: Running Commands Using the Remote Server
  
  Now you are remotely connected to a computer in the CSE basement and are ready to run any commands on this computer through this connection. Using the *cd, ls, pwd, mkdir, and cp* commands, run some commands in your terminal and see what result gets printed out.
  
@@ -49,4 +49,4 @@ Now to access *ssh*, type in the command below into your terminal and press Ente
 **Note:** You can also log out of the remote server by typing and running *exit* in your terminal. Now you can try the same commands as above on your computer through the terminal and see what the results are.
 
 ### Example of using command ls -a on your OWN Computer
-![Image](Running Commands2.png)
+![Image](Running Commands 2.png)
