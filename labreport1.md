@@ -45,8 +45,10 @@ Now to access `ssh`, type in the command below into your terminal and press Ente
 
 ### Example of using commands `ls -a` and `ls -lat` on Remote Server
 ![Image](Running Commands.png)
+(Here the `ls -a` lists out all the files in the remote server and the `ls -lat` list various information about the latest files accessed on the remote server.)
 
 **Note:** You can also log out of the remote server by typing and running `exit` in your terminal. Now you can try the same commands as above on your computer through the terminal and see what the results are.
 
 ### Example of using command `ls -a` on your OWN Computer
 ![Image](Running Commands 2.png)
+(Here the `ls -a` lists out all the files on my computer.)
