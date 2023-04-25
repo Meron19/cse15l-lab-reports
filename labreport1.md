@@ -1,6 +1,6 @@
 # Lab Report 1: Remote Access and FileSystem
 
-Follow the steps below in order to be able to log in to course-specific accounts such as **ieng6** and be able to remotely access them and run commands through them.
+Follow the steps below in order to be able to log in to course-specific accounts such as `ieng6` and be able to remotely access them and run commands through them.
 
 ---
 
