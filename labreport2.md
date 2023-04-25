@@ -1,6 +1,7 @@
 # Lab Report 2 - Servers and Bugs
 In this Lab Report, you will learn about the specifics of servers such as creating and using a serving. You will also learn about bugs, how to identify them, the different parts of an error message, and how to fix them.
-***
+
+---
 
 ## Part One: Creating and Using a Server
 
@@ -47,7 +48,7 @@ Now let's try adding `add-message?s=Hello` to the end of the the url:
 
 1. The method called in the code when running all of this is the `public String handleRequest(URI url)`.
 2. After running this method, the url of type `URI` gets passed as a parameter. This parameter is first used in the if-statement to check if the server has any path other than just `/`. If it doesn't, then an empty string gets printed out through the `strs` variable. If it does, then it checks if the path is equal to `/add-message` and from there it splits the given query from the `=` and returns the element of index 1 from that list. However, if the path doesn't match, then a `404 Not Found` error message gets printed out on to the server.
-3. The only value that actually changes during this entire process would be the `strs` variable which stores the given strings from the requests and is then used to print them on to the server page. By using a variable like `strs`, we are able to properly store all the given strings and properly print them when necessary. In this case, because this is the first request, all the gets printed on to the server is `Hello`.
+3. The only value that actually changes during this entire process would be the `strs` variable which stores the given strings from the requests and is then used to print them on to the server page. By using a variable like `strs`, we are able to properly store all the given strings and properly print them when necessary. In this case, because this is the first request, all the gets printed on to the server is `Hello`. Other than that the server url also changes since `add-message?s=Hello` was added to the end.
 
 
 Now let's try typing `add-message?s=How are you?` instead to the end of the the url:
@@ -57,4 +58,63 @@ Now let's try typing `add-message?s=How are you?` instead to the end of the the 
 
 1. The method called in the code when running all of this is the `public String handleRequest(URI url)`.
 2. After running this method, the url of type `URI` gets passed as a parameter. This parameter is first used in the if-statement to check if the server has any path other than just `/`. If it doesn't, then an empty string gets printed out through the `strs` variable. If it does, then it checks if the path is equal to `/add-message` and from there it splits the given query from the `=` and returns the element of index 1 from that list. However, if the path doesn't match, then a `404 Not Found` error message gets printed out on to the server.
-3. The only value that actually changes during this entire process would be the `strs` variable which stores the given strings from the requests and is then used to print them on to the server page. By using a variable like `strs`, we are able to properly store all the given strings and properly print them when necessary. In this case, what gets printed on to the server is `Hello` and `How are you?`.
+3. The only value that actually changes during this entire process would be the `strs` variable which stores the given strings from the requests and is then used to print them on to the server page. By using a variable like `strs`, we are able to properly store all the given strings and properly print them when necessary. In this case, what gets printed on to the server is `Hello` and `How are you?`. Other than that the server url also changes since `add-message?s=How are you?` was added to the end.
+
+## Part Two: Finding and Fixing Bugs
+
+### Here is a failure-inducing input for the `ArrayExample.java` file:
+```
+  @Test
+  public void testReversed2() {
+    int[] input1 = {1, 2, 3};
+    assertArrayEquals(new int[] {3, 2, 1}, ArrayExamples.reversed(input1));
+  }
+```
+
+### Here is a Non-failure inducing input for the `ArrayExample.java` file:
+```
+  @Test
+  public void testReversed() {
+    int[] input1 = { };
+    assertArrayEquals(new int[]{ }, ArrayExamples.reversed(input1));
+  }
+```
+
+### Here are the symptoms(outputs) after running the tests:
+
+Failure-inducing output:
+![Image](Failure.png)
+
+Non-failure inducing output:
+![Image](NonFailure.png)
+
+### Here is the before and after fixing the bug:
+
+**Before:**
+```
+  static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = newArray[arr.length - i - 1];
+    }
+    return arr;
+  }
+```
+
+**After:**
+```
+  static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for(int i = 0; i < arr.length; i += 1) {
+      newArray[i] = arr[arr.length - i - 1];
+    }
+    return newArray;
+  }
+```
+
+The fix is:
+1. Change `arr[i] = newArray[arr.length - i - 1]` → `newArray[i] = arr[arr.length - i - 1]`
+2. Change `return arr` → `return newArray`
+
+The reason this fix addresses the issue that, before the fix, all program was doing was copying the elements from `newArray`, which is an empty array into the given `arr` and then returning the `arr` array. This meant that the result would just be the elements of the `arr` array without any sort of transformations like reversing them. This is why the second test passed, since it had no elements so there was nothing to reverse causing it to pass. By fixing the way shown above, the elements of the `arr` array are copied over to the `newArray` in reverse order and the `newArray` gets returned giving us the correct answer.
+
