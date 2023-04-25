@@ -20,9 +20,9 @@ After running through all the steps and installing the application, open up the 
 
 To get started with remotely connecting to a server, you need to open up VScode and opening a terminal. (To open a terminal, use the Terminal → New Terminal menu option)
 
-Now to access `ssh`, type in the command below into your terminal and press Enter or Return. (Make sure to not type the *$* in your terminal.)
+Now to access `ssh`, type in the command below into your terminal and press Enter or Return. (Make sure to not type the `$` in your terminal.)
 
-  $ ssh cs15lsp23xx@ieng6.ucsd.edu
+  `$ ssh cs15lsp23xx@ieng6.ucsd.edu`
   
  The `cs15lsp23xx` is going to be your course specific account that can be found by following the directions on this [link](https://sdacs.ucsd.edu/~icc/index.php).
  
@@ -37,10 +37,10 @@ Now to access `ssh`, type in the command below into your terminal and press Ente
  Now you are remotely connected to a computer in the CSE basement and are ready to run any commands on this computer through this connection. Using the `cd`, `ls`, `pwd`, `mkdir`, and `cp` commands, run some commands in your terminal and see what result gets printed out.
  
  Some example commands to try out:
- * `cd ~`
- * `cd`
- * `ls -lat`
- * `ls -a`
+ * `pwd` - prints out the entire current working directory from the root directory
+ * `cd` - makes you able to change directories by typing the name of the directory you want to switch to after the command.
+ * `ls -lat` - list various information about the latest files accessed on the device(i.e. # of visits, data accessed, size of file, etc.) 
+ * `ls -a` - lists all files on device
 
 
 ### Example of using commands `ls -a` and `ls -lat` on Remote Server
