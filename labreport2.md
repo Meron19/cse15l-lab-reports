@@ -118,3 +118,7 @@ The fix is:
 
 The reason this fix addresses the issue that, before the fix, all program was doing was copying the elements from `newArray`, which is an empty array into the given `arr` and then returning the `arr` array. This meant that the result would just be the elements of the `arr` array without any sort of transformations like reversing them. This is why the second test passed, since it had no elements so there was nothing to reverse causing it to pass. By fixing the way shown above, the elements of the `arr` array are copied over to the `newArray` in reverse order and the `newArray` gets returned giving us the correct answer.
 
+
+## Part Three: Something I Learned
+
+Although there were many things I learned during these past two weeks from lab, I believe the most significant information I learned that will help me for periods to come was about bugs, how they work, and how to fix them. I was most surprised by the fact that programs could have bugs even when they pass all the tests. This just meant that testing had to be done even more throughly to prevent any small bug from skating by. This was certainly something that I didn't know or realize before but it makes sense as to why my previous and current CS teachers always obsess of testing. I always thought it was pointless to continue testing my code if it had already passed the tests that were written my teachers. Turns out, I was wrong since even their tests can be all-encompassing and could possibly let a bug by.
