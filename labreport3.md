@@ -3,6 +3,8 @@
 In this lab report, you will learn about using the `find` command used in the command-line and some options that can be used with this command.
 
 ---
+**Sources Used:** [ChatGPT](https://chat.openai.com) & [SS64](https://ss64.com/osx/find.html)
+---
 
 ## Part One: Command `find` With `-name` Option
 
