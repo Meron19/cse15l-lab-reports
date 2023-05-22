@@ -4,6 +4,73 @@ In this lab report, you will learn about using the `find` command used in the co
 
 ---
 **Sources Used:** [ChatGPT](https://chat.openai.com) & [SS64](https://ss64.com/osx/find.html)
+
+**Chat GPT Prompts & Responses:
+1. Prompt: *'find command-line options using the command "find"'*
+
+The "find" command is a powerful utility used to search for files and directories in a given directory hierarchy based on different criteria. Here are some common command-line options you can use with the "find" command:
+
+1. `-name`: This option allows you to search for files based on their name. For example, to find all files named "file.txt" in the current directory and its subdirectories, you can use the following command: `find . -name file.txt`.
+
+2. `-type`: This option allows you to search for files based on their type. For example, to find all directories in the current directory and its subdirectories, you can use the following command: `find . -type d`.
+
+3. `-mtime`: This option allows you to search for files based on their modification time. For example, to find all files that have been modified in the last 7 days in the current directory and its subdirectories, you can use the following command: `find . -mtime -7`.
+
+4. `-size`: This option allows you to search for files based on their size. For example, to find all files that are larger than 1MB in the current directory and its subdirectories, you can use the following command: `find . -size +1M`.
+
+5. `-exec`: This option allows you to execute a command on each file that matches the search criteria. For example, to delete all files with the ".log" extension in the current directory and its subdirectories, you can use the following command: `find . -name "*.log" -exec rm {} \;`.
+
+6. To find all files in the home directory and its subdirectories that have the word "example" in their name, you can use the following command:
+
+   `find ~/ -name "*example*"`
+
+7. To find all empty files in the current directory and its subdirectories, you can use the following command:
+
+   `find . -type f -empty`
+
+8. To find all files with the extension ".txt" or ".md" in the current directory and its subdirectories, you can use the following command:
+
+   `find . \( -name "*.txt" -o -name "*.md" \)`
+
+9. To find all directories in the current directory and its subdirectories that have not been modified in the last 30 days, you can use the following command:
+
+   `find . -type d -mtime +30`
+
+10. To find all files owned by a specific user in the current directory and its subdirectories, you can use the following command:
+
+    `find . -user username`
+
+11. To find all files that were modified exactly 7 days ago in the current directory and its subdirectories, you can use the following command:
+
+    `find . -type f -mtime 7`
+
+These are just a few examples to give you an idea of how to use the "find" command with different options. There are many more options available, and you can combine them to create more complex searches based on your requirements.
+
+These are just a few examples of the command-line options you can use with the "find" command. To learn more about the different options and how to use them, you can refer to the "find" command's manual pages by typing `man find` in the terminal.
+
+2. Prompt: *give me different command line commands using find and  -exec that delete only in the working directory*
+
+Sure! Here are some examples of command line commands that use the "find" command with the "-exec" option to delete files only in the current working directory (i.e., the directory where you are currently located in the command line interface):
+
+1. Delete all files with a .log extension in the current working directory:
+```Java
+find . -maxdepth 1 -name "*.log" -type f -exec rm {} \;
+```
+
+2. Delete all files with a .bak extension in the current working directory and its subdirectories:
+```Java
+find . -name "*.bak" -type f -exec rm {} \;
+```
+
+3. Delete all empty directories in the current working directory:
+```Java
+find . -type d -empty -exec rmdir {} \;
+```
+
+In these examples, the "-maxdepth 1" option is used to limit the search to only the current working directory (i.e., it does not search in subdirectories), or the search is not limited at all (in the case of empty directories). 
+
+Again, it's important to be cautious when using the "find" command with the "-exec" option to delete files, as there is no undo function for deleting files from the command line. Always double-check the files you are about to delete before running the command.
+
 ---
 
 ## Part One: Command `find` With `-name` Option
@@ -13,9 +80,9 @@ Below is the command-line command used to search and find all the files based on
 **Input & Output:**
 
 ```Java
-meron@Merons-MacBook-Air docsearch % find . -name "*.md"
-./example.md
+meron@Merons-MacBook-Air technical % find . -name "*.md"
 ./README.md
+./empty.md
 ```
 
 Using the `find` command with this option allows me to find all the files of a certain file type. This can be helpful is aiding me to quickly locate what file I may be looking for. In this case, using the command allowed me to find all the files with the type `.md` in my current working directory, which were only two files.
@@ -23,13 +90,26 @@ Using the `find` command with this option allows me to find all the files of a c
 **Input & Output:**
 
 ```Java
-meron@Merons-MacBook-Air docsearch % find . -name "*results*" 
-./find-results.txt
-./file-results.txt
-./grep-results.txt
+meron@Merons-MacBook-Air technical % find . -name "*chapter*"
+./911report/chapter-13.4.txt
+./911report/chapter-13.5.txt
+./911report/chapter-13.1.txt
+./911report/chapter-13.2.txt
+./911report/chapter-13.3.txt
+./911report/chapter-3.txt
+./911report/chapter-2.txt
+./911report/chapter-1.txt
+./911report/chapter-5.txt
+./911report/chapter-6.txt
+./911report/chapter-7.txt
+./911report/chapter-9.txt
+./911report/chapter-8.txt
+./911report/chapter-12.txt
+./911report/chapter-10.txt
+./911report/chapter-11.txt
 ```
 
-The `find` command with the option above uses the same method of searching the current working directory for all the files with the same name, but, in the case of this command-line, using stars before and after a specific word will indictate that you want to find all the files that contain that word as part of their name. In this case, I searched for all the files that have the word **results** and 3 files were returned as a result.
+The `find` command with the option above uses the same method of searching the current working directory for all the files with the same name, but, in the case of this command-line, using stars before and after a specific word will indictate that you want to find all the files that contain that word as part of their name. In this case, I searched for all the files that have the word **chapter** and 16 files were returned as a result.
 
 ## Part Two: Command `find` With `-type` Option
 
@@ -38,17 +118,27 @@ Below is the command-line command used to search and find all the files based on
 **Input & Output:**
 
 ```Java
-meron@Merons-MacBook-Air docsearch % find . -type d
-...
+meron@Merons-MacBook-Air technical % find . -type d
+.
+./government
+./government/About_LSC
+./government/Env_Prot_Agen
+./government/Alcohol_Problems
+./government/Gen_Account_Office
+./government/Post_Rate_Comm
+./government/Media
+./plos
+./biomed
+./911report
 ```
 
-Using the `find` command with this option allows me to find all the files of the current directory. This can be helpful is aiding me to quickly locate what file I may be looking for. In this case, using the command allowed me to find all the files within my current working directory; however, for the sake of this site, I inputed the output as `...` because there are way too many files to even fit on this page.
+Using the `find` command with this option allows me to find all the files of the current directory. This can be helpful is aiding me to quickly locate what file I may be looking for. In this case, using the command allowed me to find all the files within my current working directory.
 
 **Input & Output:**
 
 ```Java
-meron@Merons-MacBook-Air docsearch % find . -type f -empty 
-./empty.txt
+meron@Merons-MacBook-Air technical % find . -type f -empty
+./empty.md
 ```
 
 Here the `-type` option used in the `find` command searches for the file individually as compared to the previous command-line which searched through the directories. In this case, the command-line searched for all the files that were empty, which returned a single file that had no text or code.
@@ -60,18 +150,28 @@ Below is the command-line command used to search and find all the files based on
 **Input & Output:**
 
 ```Java
-meron@Merons-MacBook-Air docsearch % find . -type d -empty -exec rmdir {} \;
-
-find: ./empty: No such file or directory
+meron@Merons-MacBook-Air docsearch % find technical  -type d -empty -exec rmdir {} +
 ```
 
-Using the `find` command with this option first searches for all the files meeting the search citeria, in this case they just need to be an empty file. Then through the `-exec` option we can execute the remove directory command. This can be helpful is aiding me to quickly deleting unwanted directories or accessing and using the files within such directories.
+**Before:**
+![Image](emptydir.png)
+
+**After:**
+![Image](noemptydir.png)
+
+Using the `find` command with this option first searches for all the files meeting the search citeria, in this case they just need to be an empty directory. Then through the `-exec` option we can execute the remove directory command. In this case the `emptydir` directory was deleted from the `/technical` directory. This can be helpful is aiding me to quickly deleting unwanted directories or accessing and using the files within such directories.
 
 **Input & Output:**
 
 ```Java
-meron@Merons-MacBook-Air docsearch % find . -maxdepth 1 -name "*.md" -type f -exec rm {} \;
+meron@Merons-MacBook-Air technical % find . -maxdepth 1 -name "*.md" -type f -exec rm {} \;
+
 ```
+**Before:**
+![Image](bmd.png)
+
+**After:**
+![Image](amd.png)
 
 Here the `-type` option used in the `find` command searches for the file individually with the name containing `.md` in the current working directory and removes it. In this case, the terminal doesn't return anything but still executes the remove command, `rm`, and removes all the `.md` files in the current working directory, which were two in my case.
 
@@ -82,65 +182,33 @@ Below is the command-line command used to search and find all the files based on
 **Input & Output:**
 
 ```Java
-meron@Merons-MacBook-Air docsearch % find . -mtime -7 
+meron@Merons-MacBook-Air technical % find . -mtime -7
 .
-./empty.txt
-./.git
-./.git/objects
-./.git/objects/04
-./.git/objects/04/474a3237c11e32fd5e85c20b3cd5f3bbde626f
-./.git/objects/04/3eb99393491241455746580f55306fa0ddcc84
-./.git/objects/b3
-./.git/objects/b3/537075783af46f636fc3c445d5eef6bd09df0c
-./.git/objects/a5
-./.git/objects/a5/bb2cd797f60f0a5d3f00d48fe393e016a3afb4
-./.git/objects/e4
-./.git/objects/e4/79486c2534d112d573f19742c59ca1cb75e3a2
-./.git/objects/fb
-./.git/objects/fb/a87f3ee9cfda8aaf35e7b266d58414843e474d
-./.git/objects/20
-./.git/objects/20/440e45e6f6944dc6cf2aa08b12ca49c1be1dda
-./.git/objects/29
-./.git/objects/29/d35ac26fa480bb91a686116d8c22e75ed5a9be
-./.git/objects/91
-./.git/objects/91/73e9956c4321ae696dae453f032383b52c5d0d
-./.git/objects/06
-./.git/objects/06/00a2f1adf3a50548ff3331271e0ba28c07d03f
-./.git/objects/bf
-./.git/objects/bf/6fd8b075aacf234523deae7577b69354b9e91a
-./.git/objects/b1
-./.git/objects/b1/af8c549174b0693766e884b81aa1c7d963edc7
-./.git/objects/e6
-./.git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391
-./.git/objects/1b
-./.git/objects/1b/1cae261e08e48099c46c817112d7297191a31a
-./.git/objects/71
-./.git/objects/71/3141ac6f1975bb2ed9d78a32a60a919d531028
-./.git/objects/49
-./.git/objects/49/b8af5641bcde1a99297f727c26180e63b573b0
-./.git/logs/HEAD
-./.git/logs/refs/heads/main
-./.git/logs/refs/remotes/origin
-./.git/logs/refs/remotes/origin/HEAD
-./.git/logs/refs/remotes/origin/main
-./.git/logs/refs/remotes/upstream/HEAD
-./.git/refs
-./.git/refs/heads
-./.git/refs/heads/main
-./.git/refs/remotes/origin
-./.git/refs/remotes/origin/HEAD
-./.git/refs/remotes/origin/main
-./.git/refs/remotes/upstream
-./.git/refs/remotes/upstream/HEAD
-./.git/index
-./.git/COMMIT_EDITMSG
-./.git/FETCH_HEAD
+./911report/chapter-1.txt
 ```
 
 **Input & Output:**
 
 ```Java
-meron@Merons-MacBook-Air docsearch % find . -mtime +7
+meron@Merons-MacBook-Air technical % find . -mtime +7
+.
+./plos/journal.pbio.0020052.txt
+./plos/pmed.0020148.txt
+./plos/pmed.0020160.txt
+./plos/pmed.0010048.txt
+./plos/pmed.0010060.txt
+./plos/journal.pbio.0030137.txt
+./plos/journal.pbio.0030136.txt
+./plos/pmed.0010061.txt
+./plos/pmed.0010049.txt
+./plos/pmed.0020161.txt
+./plos/journal.pbio.0020127.txt
+./plos/pmed.0020149.txt
+./plos/journal.pbio.0020133.txt
+./plos/pmed.0020015.txt
+./plos/journal.pbio.0020053.txt
+./plos/journal.pbio.0020047.txt
+./plos/pmed.0020203.txt
 ...
 ```
 
