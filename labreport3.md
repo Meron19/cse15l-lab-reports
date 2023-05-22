@@ -164,7 +164,8 @@ Using the `find` command with this option first searches for all the files meeti
 **Input & Output:**
 
 ```Java
-meron@Merons-MacBook-Air technical % find . -maxdepth 1 -name "*.md" -type f -exec rm {} \;
+meron@Merons-MacBook-Air technical % find . -maxdepth 1 -name "*.md" -type f 
+-exec rm {} \;
 
 ```
 **Before:**
