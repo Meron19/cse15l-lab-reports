@@ -42,3 +42,12 @@ On this step, I first entered by typing `vim` into the terminal followed by the 
 **Keys Pressed:** `<up><up><enter>`
 
 Since the `bash test.sh` command was 2 up arrows in my terminal search history, I was able to access it and re-run the bash command to run the tests again. After making the edits in `vim`, the two tests now both pass.
+
+## Step 6: Committing & Pushing The Edit
+
+![Image](push.png)
+
+**Keys Pressed:** `git status<enter>git add ListExamples.java<enter>git commit -m "Bug fixed"<enter>git push git@github.com:Meron19/lab7.git main<enter>`
+
+On this step, there were multiple commands that were passed in order to commit and push the changes made on the file through `vim` mode to the actual repository. The first step is to pull up the list of files that were changed through the `git status`. Then, I chose the file that I edited, which was the `ListExamples.java` file and added it to the list of files that can be committed through the `git add` command. Now, all that was left was to actually commit the changes to my forked respository through the `git command` and include whatever message I wanted. Lastly, I pushed the commit through the `git push` command and the `ssh` clone URL.
+
